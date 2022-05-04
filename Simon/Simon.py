@@ -4,7 +4,8 @@ from random import randint
 import pygame
 from pygame.mixer import Sound
 
-def simon():#pygame setup
+def Simon():
+    #pygame setup
     pygame.init()
 
 
