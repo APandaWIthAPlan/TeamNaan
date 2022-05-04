@@ -61,7 +61,7 @@ def Simon():
                 sleep(0.1)
                 self.all_off()
                 sleep(0.1)
-
+            self.result = "bad"
             self.done = True
             pygame.quit()
 
@@ -94,8 +94,8 @@ def Simon():
                         self.done = True
                         return
                 keys_pressed = pygame.key.get_pressed()
-                if keys_pressed[pygame.K_c]:
-                    self.restart()
+                if keys_pressed[pygame.K_z]:
+                    self.win()
                     return
                 for i in range(len(self.gamekeys)):     #loops over each color button
                     if keys_pressed[self.gamekeys[i]]:
@@ -127,6 +127,7 @@ def Simon():
             self.seq = [randint(0,3), randint(0,3)]
 
         def win(self):
+                self.result = "win"
                 for _ in range(0,4):
                     self.sounds[3].play()
                     self.all_on()
@@ -135,7 +136,9 @@ def Simon():
                     sleep(0.1)
                 screen.blit(bombwin,(0,0))
                 pygame.display.update()
-                sleep(1)
+                sleep(3)
+                self.done = True
+                
 
                         
         # main program
@@ -156,7 +159,7 @@ def Simon():
 
     s = Simon()
     s.run()
-
+    return s.result
 
 
 

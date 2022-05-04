@@ -3,7 +3,7 @@
 # imports
 import pygame
 from random import randint
-from time import time
+from time import time, sleep
 from math import atan, degrees
 import os
 
@@ -13,7 +13,7 @@ def WireGame():
 
 
     #countdown
-    COUNTDOWN = 180
+    COUNTDOWN = 10
     start_time = time() # Used for countdown calculations later
 
     # window setup
@@ -191,16 +191,20 @@ def WireGame():
                 texts[0][0] = "00.0"
                 if len(texts) <= 5:
                     texts.append(["You Lose!", COUNTDOWN_FONT, (round(HEIGHT+(WIDTH-HEIGHT)/2-70), round(HEIGHT/2+40)), BLACK])
-                #run = False
+                winlose = "bad"
+                sleep(3)
+                run = False
 
             if active_lights == [True, True, True, True]: # Win condition
                 if len(texts) <= 5:
                     texts.append(["You Win!", COUNTDOWN_FONT, (round(HEIGHT+(WIDTH-HEIGHT)/2-70), round(HEIGHT/2+40)), BLACK])
-                #run = False
+                winlose = "win"
+                sleep(3)
+                run = False
 
 
 
-            clock.tick(FPS)
+            clock.tick(FPS) 
             for event in pygame.event.get(): # Event Loop
                 if event.type == pygame.QUIT:
                     run = False
@@ -221,6 +225,7 @@ def WireGame():
                         active_lights = [True, True, True, True]
                     
                     if event.key == pygame.K_z: # 'z' key for window close
+                        winlose = "win"
                         run = False
 
 
@@ -312,10 +317,7 @@ def WireGame():
             draw_window(rects, texts, images, active_lights, selected, sel_pos)
 
         pygame.quit()
+        return winlose
         
 
-    if __name__ == "__main__":
-        main(rects, texts, start_time)
-    else:
-        print("poop")
-        main(rects, texts, start_time)
+    return main(rects, texts, start_time)
