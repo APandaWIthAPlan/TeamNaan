@@ -2,8 +2,6 @@ from Simon.Simon import Simon
 from Snip.snip import SnipSnip
 from Wire.Wire import WireGame
 from TitleScreen.Title import Instruction, LoseScreen, WinScreen
-import os
-import pygame
 from time import sleep
 
 

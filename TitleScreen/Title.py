@@ -9,7 +9,7 @@ def Instruction(num):
     title = pygame.image.load(os.path.join('MainAssets',photo[num]))
     WHITE = (255,255,255)
     pygame.init()
-    screen = pygame.display.set_mode((800,480))
+    screen = pygame.display.set_mode((800,480),pygame.FULLSCREEN)
     if photo == "titlescreen.png":
         pygame.display.set_caption("Title")
     else:
@@ -34,7 +34,7 @@ def WinScreen():
     WHITE = (255,255,255)
     pygame.init()
     winsound = Sound(os.path.join('MainAssets',"victory2.wav"))
-    screen = pygame.display.set_mode((800,480))
+    screen = pygame.display.set_mode((800,480),pygame.FULLSCREEN)
     pygame.display.set_caption("Congrats!!")
     screen.fill(WHITE)
     screen.blit(title,(0,0))
@@ -56,7 +56,7 @@ def LoseScreen():
     WHITE = (255,255,255)
     pygame.init()
     losesound = Sound(os.path.join('MainAssets',"explosion.wav"))
-    screen = pygame.display.set_mode((800,480))
+    screen = pygame.display.set_mode((800,480),pygame.FULLSCREEN)
     pygame.display.set_caption("ur bad + ratio")
     screen.fill(WHITE)
     screen.blit(title,(0,0))

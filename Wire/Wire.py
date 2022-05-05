@@ -18,7 +18,7 @@ def WireGame():
     # window setup
     HEIGHT = 480
     WIDTH = 800
-    WIN = pygame.display.set_mode((WIDTH, HEIGHT))
+    WIN = pygame.display.set_mode((WIDTH, HEIGHT),pygame.FULLSCREEN)
     pygame.display.set_caption("Wire Scramble Game") # Window Title
     SCALE_FACTOR = HEIGHT/678 # window height over the height of the background image
 

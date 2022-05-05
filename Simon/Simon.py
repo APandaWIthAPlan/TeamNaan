@@ -20,7 +20,7 @@ def Simon():
     bomball = pygame.image.load(os.path.join('SimonAssets','bomball.png'))
 
     #display setup
-    screen = pygame.display.set_mode((800,480))
+    screen = pygame.display.set_mode((800,480),pygame.FULLSCREEN)
     pygame.display.set_caption("Simon")
     screen.fill(WHITE)
     screen.blit(bomb,(0,0))

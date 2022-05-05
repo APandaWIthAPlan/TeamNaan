@@ -23,7 +23,7 @@ def SnipSnip():
     title = pygame.image.load(os.path.join('SnipAssets',random.choice(photo)))
     WHITE = (255,255,255)
     pygame.init()
-    screen = pygame.display.set_mode((800,480))
+    screen = pygame.display.set_mode((800,480),pygame.FULLSCREEN)
     pygame.display.set_caption("SnipSnip")
     screen.fill(WHITE)
     screen.blit(title,(0,0))
