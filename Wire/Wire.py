@@ -5,15 +5,14 @@ import pygame
 from random import randint
 from time import time, sleep
 from math import atan, degrees
+from pygame.mixer import Sound
 import os
 
 def WireGame():
     # global variables
     global countdown
-
-
     #countdown
-    COUNTDOWN = 10
+    COUNTDOWN = 60
     start_time = time() # Used for countdown calculations later
 
     # window setup
@@ -38,6 +37,8 @@ def WireGame():
 
     # fonts
     pygame.font.init()
+    pygame.init()
+    WIRE_SOUND = Sound(os.path.join('WireAssets',"electric.wav"))
     STANDARD_FONT = pygame.font.SysFont('calibri', 20, bold=True)
     COUNTDOWN_FONT = pygame.font.SysFont('monospace', 28, bold=True)
 
@@ -58,6 +59,7 @@ def WireGame():
 
     SELECTOR = pygame.transform.scale(pygame.image.load((os.path.join('WireAssets','selector.png'))), (round(54*SCALE_FACTOR), round(54*SCALE_FACTOR)))
 
+    
 
     # rects list
     rects = [] # rects.append((pygame.Rect(), ))
@@ -242,6 +244,7 @@ def WireGame():
                                     if y_dist > 0:
                                         y_offset = round(y_dist)
                                     images.append([image, (wire_starts_list[0][0], round(wire_starts_list[0][1]-(WIRE_REF[1]/2))-y_offset)])
+                                    WIRE_SOUND.play()
                                 active_lights[0] = True
                             else:
                                 cd_penalty += 15
@@ -263,6 +266,7 @@ def WireGame():
                                     if y_dist > 0:
                                         y_offset = round(y_dist)
                                     images.append([image, (wire_starts_list[1][0], round(wire_starts_list[1][1]-(WIRE_REF[1]/2))-y_offset)])
+                                    WIRE_SOUND.play()
                                 active_lights[1] = True
                             else:
                                 cd_penalty += 15
@@ -284,6 +288,7 @@ def WireGame():
                                     if y_dist > 0:
                                         y_offset = round(y_dist)
                                     images.append([image, (wire_starts_list[2][0], round(wire_starts_list[2][1]-(WIRE_REF[1]/2))-y_offset)])
+                                    WIRE_SOUND.play()
                                 active_lights[2] = True
                             else:
                                 cd_penalty += 15
@@ -305,6 +310,7 @@ def WireGame():
                                     if y_dist > 0:
                                         y_offset = round(y_dist)
                                     images.append([image, (wire_starts_list[3][0], round(wire_starts_list[3][1]-(WIRE_REF[1]/2))-y_offset)])
+                                    WIRE_SOUND.play()
                                 active_lights[3] = True
                             else:
                                 cd_penalty += 15

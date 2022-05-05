@@ -146,7 +146,7 @@ def Simon():
             print("Welcome to Simon!")
             print("Repeat the sequence")
             while not self.done:
-                if len(self.seq) == 6: # finishes game after 3 turns, add more for more, etc
+                if len(self.seq) == 5: # finishes game after 3 turns, add more for more, etc
                     print("Woohoo you win")
                     self.win()
                     break  

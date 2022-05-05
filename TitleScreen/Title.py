@@ -1,7 +1,7 @@
 import os
 import pygame
 from time import sleep
-
+from pygame.mixer import Sound
 
 
 def Instruction(num):
@@ -33,11 +33,13 @@ def WinScreen():
     title = pygame.image.load(os.path.join('MainAssets',"winscreen.png"))
     WHITE = (255,255,255)
     pygame.init()
+    winsound = Sound(os.path.join('MainAssets',"victory2.wav"))
     screen = pygame.display.set_mode((800,480))
     pygame.display.set_caption("Congrats!!")
     screen.fill(WHITE)
     screen.blit(title,(0,0))
     pygame.display.update()
+    winsound.play()
     Taco = True
     clock = pygame.time.Clock()
 
@@ -53,11 +55,13 @@ def LoseScreen():
     title = pygame.image.load(os.path.join('MainAssets',"losescreen.png"))
     WHITE = (255,255,255)
     pygame.init()
+    losesound = Sound(os.path.join('MainAssets',"explosion.wav"))
     screen = pygame.display.set_mode((800,480))
     pygame.display.set_caption("ur bad + ratio")
     screen.fill(WHITE)
     screen.blit(title,(0,0))
     pygame.display.update()
+    losesound.play()
     Taco = True
     clock = pygame.time.Clock()
 
